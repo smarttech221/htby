@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>NGO Finder - User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            border-bottom: 2px solid #0066CC;
+            position: relative;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0066CC;
+        }
+        .notification-icon {
+            font-size: 1.5rem; /* Size of the icon */
+            cursor: pointer; /* Pointer cursor on hover */
+            color: #62a6ff; /* Default color */
+        }
+        .notification-icon:hover {
+            color: #75c1ff; /* Color when hovered */
+        }
+        .menu-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #0066CC;
+        }
+        .menu-icon:hover {
+            color: #004999; /* Slightly darker shade on hover */
+        }
+        .menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000; /* Ensure this is high enough to be on top */
+        }
+        .menu.show {
+            display: block;
+        }
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .menu ul li {
+            border-bottom: 1px solid #ddd;
+        }
+        .menu ul li a {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+        .menu ul li a:hover {
+            background-color: #101111;
+        }
+        .menu ul li a i {
+            margin-right: 10px;
+        }
+        main {
+            text-align: center;
+            padding: 20px;
+        }
+        .greeting-container {
+            position: relative;
+            
+            padding: 20px 0; /* Vertical padding to provide space for the half-circle */
+        }
+        .greeting {
+            position: relative;
+            font-size: 1.25rem;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #94c9ff; /* Background color of the greeting section */
+            color: rgb(0, 0, 0); /* Text color */
+          
+            border-radius: 0 0 50% 50%; /* Half-circle border at the bottom */
+            overflow: hidden; /* Ensures the half-circle is visible */
+        }
+        .greeting::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw; /* Full viewport width */
+            height: 100px; /* Height of the half-circle */
+            background-color: #94c9ff; /* Same as .greeting background color */
+            border-radius: 50%; /* Creates the half-circle */
+            z-index: -1; /* Places the half-circle behind the .greeting content */
+        }
+        .search-container {
+            display: flex;
+            justify-content: center; 
+            width: 100%; /* Full width */
+            max-width: 800px; /* Optional: Set a maximum width to keep it from being too wide */
+            position: relative; /* To position the search icon inside the container */
+        }
+        .search-container form {
+            display: flex;
+            width: 100%; /* Full width within the container */
+            border: 1px solid #ddd; /* Border for the container */
+            border-radius: 25px; /* Curved border */
+            overflow: hidden; /* Ensure the border-radius applies to all child elements */
+        }
+        .search-container input {
+            width: 100%; /* Full width */
+            padding: 10px 40px; /* Padding to accommodate the search icon */
+            border: none;
+            border-radius: 25px; /* Match border-radius of the container */
+            font-size: 1rem;
+            outline: none; /* Remove default focus outline */
+        }
+        .search-container input::placeholder {
+            color: #aaa; /* Placeholder text color */
+            font-style: italic;
+        }
+        .search-container .search-icon {
+            position: absolute;
+            right: 10px; /* Adjust position as needed */
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.25rem;
+            color: #0066CC;
+            pointer-events: none; /* Ensure the icon doesn't block input */
+        }
+        .categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .category-box {
+            border: 1px solid #ddd; /* Light border */
+            border-radius: 15px; /* Rounded corners */
+            padding: 20px; /* Increased padding for a more spacious feel */
+            margin: 10px; /* Increased margin for spacing */
+            width: 150px; /* Fixed width */
+            text-align: center; /* Centered text */
+            background-color: #94c9ff; /* Light background color */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        .category-box:hover {
+            background-color: #f1f1f1; /* Slightly darker background on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+        .category-box i {
+            font-size: 2rem;
+            color: #000000;
+        }  .ngo-card {
+    
+    border-radius: 5px;
+   
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+   
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ngo-card img {
+    border-radius: 50%;
+    width: 80px; /* Adjust size as needed */
+    height: 80px; /* Adjust size as needed */
+    margin-right: 15px;
+}
+
+.ngo-card .ngo-info {
+    flex: 1;
+}
+
+.ngo-card h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+}
+
+.ngo-card p {
+    margin: 5px 0;
+}
+
+.ngo-card button {
+    background-color:#0066CC;
+    border: none;
+    color: white;
+   
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.ngo-card button:hover {
+    background-color: #0056b3;
+}
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-top: 2px solid #0066CC;
+        }
+        footer a {
+            text-decoration: none;
+            color: #000000;
+            margin: 0 5px;
+        }
+        footer a i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="notification-icon fas fa-bell"></div>
+        <div class="logo">𝐍𝐆𝐎 𝐅𝐢𝐧𝐝𝐞𝐫</div>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <nav id="menu" class="menu">
+            <ul>
+                <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+                <li><a href="#"><i class="fas fa-edit"></i> Edit Profile</a></li>
+                <li><a href="funding.html"><i class="fas fa-dollar-sign"></i> Fundings</a></li>
+
+                <li><a href="logout/logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="greeting-container">
+            <div class="greeting">
+               Hello Ali Welcome To NGO Finder!
+            </div>
+        </div>
+
+        <div class="search-container">
+            <input type="text" placeholder="Search for NGOs...">
+            <i class="fas fa-search search-icon"></i>
+        </div>
+
+        <div class="categories">
+            <div class="category-box">
+                <i class="fas fa-handshake"></i>
+                <p>Donations</p>
+            </div>
+            <div class="category-box">
+                <i class="fas fa-medkit"></i>
+                <p>Health</p>
+            </div>
+            <div class="category-box">
+                <i class="fas fa-graduation-cap"></i>
+                <p>Education</p>
+            </div>
+        </div>
+
+        <section id="ngo-list">
+            <h2>High Rated NGOs</h2>
+
+            <div class="ngo-card">
+                <img src="C:\Users\H.A.R\Downloads\logo.png" alt="Edhi Foundation Logo">
+                <div class="ngo-info">
+                    <h3>1. Edhi Foundation</h3>
+                    <p><strong>Services Offered:</strong> Medical Aid, Education, Social Services</p>
+                    <p><strong>Contact:</strong> 021-38785100</p>
+                </div>
+                <button onclick="window.location.href='https://edhi.org/'">View Details</button>
+            </div>
+            
+            <div class="ngo-card">
+                <img src="C:\Users\H.A.R\OneDrive\Pictures\skmLogo2022.png" alt="Shaukat Khanum Memorial Cancer Hospital & Research Centre Logo">
+                <div class="ngo-info">
+                    <h3>2. Shaukat Khanum Memorial Cancer Hospital & Research Centre</h3>
+                    <p><strong>Services Offered:</strong> Cancer Treatment, Research, Patient Care</p>
+                    <p><strong>Contact:</strong> 091-5250000</p>
+                </div>
+                <button onclick="window.location.href='https://www.shaukatkhanum.org.pk/'">View Details</button>
+            </div>
+            
+            <!-- Add 3 more NGO cards similarly -->
+        </section>
+    </main>
+
+    <footer>
+        <a href="#"><i class="fas fa-home"></i> Home</a>
+        <a href="#"><i class="fas fa-info-circle"></i> About</a>
+        <a href="#"><i class="fas fa-phone"></i> Contact</a>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

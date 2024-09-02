@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>NGO Finder - User Dashboard</title>
+</head>
+<body>
+    <header>
+        <div class="logo">𝐍𝐆𝐎 𝐅𝐢𝐧𝐝𝐞𝐫</div>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <nav id="menu" class="menu">
+            <ul>
+                <li><a href="C:\Users\H.A.R\5th update.html">View Profile</a></li>
+                <li><a href="C:\Users\H.A.R\5th update.html">Edit Profile</a></li>
+                <li><a href="C:\Users\H.A.R\funding.html">Fundings</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard">
+            <h1>𝐒𝐞𝐚𝐫𝐜𝐡 𝐟𝐨𝐫 𝐍𝐆𝐎𝐬</h1>
+            <form id="search-form" onsubmit="return searchNGOs(event)">
+                <div class="search-container">
+                    <select id="city-dropdown" required>
+                        <option value="" disabled selected>𝐒𝐞𝐥𝐞𝐜𝐭 𝐂𝐢𝐭𝐲</option>
+                        <option value="islamabad.html">Islamabad</option>
+                        <option value="karachi.html">Karachi</option>
+                        <option value="haripurngo.html">Haripur</option>
+                    </select>
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+
+            <section id="ngo-list">
+                <h2>𝐍𝐆𝐎 𝐑𝐞𝐬𝐮𝐥𝐭𝐬</h2>
+                <div class="ngo-card" id="ngo1">
+                    <h3>𝐀𝐥-𝐊𝐡𝐢𝐝𝐦𝐚𝐭 𝐅𝐨𝐮𝐧𝐝𝐚𝐭𝐢𝐨𝐧</h3>
+                    <p><strong>Services Offered:</strong> Service A, Service B</p>
+                    <p><strong>Contact:</strong> 123-456-7890</p>
+                    <button onclick="viewDetails('ngo1')">View Details</button>
+                </div>
+                <!-- More NGO cards can be added dynamically -->
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 NGO Finder</p>
+    </footer>
+
+    <script>
+        function viewDetails(ngoId) {
+            alert("Viewing details for " + ngoId);
+        }
+
+        function searchNGOs(event) {
+            event.preventDefault();
+            const selectedCity = document.getElementById("city-dropdown").value;
+            if (selectedCity) {
+                window.location.href = selectedCity; // Redirect to the selected city's page
+            }
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

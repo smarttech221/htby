@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="haripur.css">
+    <title>NGOs in Haripur</title>
+</head>
+<body>
+    <header>
+        <div class="logo">NGO Finder</div>
+        <nav>
+            <ul>
+                <li><a href="C:\Users\H.A.R\serach.html">Home</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard">
+            <h1>NGOs in Haripur</h1>
+            <section id="ngo-list">
+                <div class="ngo-card">
+                    <h3>Helping Hands</h3>
+                    <p><strong>Services Offered:</strong> Education, Health Care</p>
+                    <p><strong>Contact:</strong> 123-456-7890</p>
+                    <p><strong>Address:</strong> Main Street, Haripur</p>
+                    <button onclick="viewDetails('helping-hands')">View Details</button>
+                </div>
+                <div class="ngo-card">
+                    <h3>Hope Foundation</h3>
+                    <p><strong>Services Offered:</strong> Food Distribution, Shelter</p>
+                    <p><strong>Contact:</strong> 987-654-3210</p>
+                    <p><strong>Address:</strong> Park Avenue, Haripur</p>
+                    <button onclick="viewDetails('hope-foundation')">View Details</button>
+                </div>
+                <div class="ngo-card">
+                    <h3>Edhi Foundation</h3>
+                    <p><strong>Services Offered:</strong> Ambulance Services, Orphanages</p>
+                    <p><strong>Contact:</strong> 456-789-0123</p>
+                    <p><strong>Address:</strong> Central Road, Haripur</p>
+                    <button onclick="viewDetails('edhi-foundation')">View Details</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 NGO Finder</p>
+    </footer>
+
+    <script>
+        function viewDetails(ngoId) {
+            alert("Viewing details for " + ngoId);
+            // Implement functionality to show detailed profile
+        }
+    </script>
+</body>
+</html>

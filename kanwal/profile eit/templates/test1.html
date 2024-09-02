@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login & Signup</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+     
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .form-container {
+        background-color: #fff;
+        padding: 40px; 
+        border-radius: 9px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: left; /* Align text to the left */
+    }
+    .form-container h2 {
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    .form-container img {
+        width: 100%;
+        max-width: 250px;
+        margin-bottom: 10px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .form-container label {
+        display: block;
+        margin: 8px 0 4px;
+        font-weight: bold;
+    }
+    .form-container input[type="text"],
+    .form-container input[type="password"],
+    .form-container input[type="email"],
+    .form-container input[type="tel"],
+    .form-container input[type="file"],
+    .form-container select {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box; /* Ensure padding and border are included in width */
+        text-align: left; /* Align text to the left */
+    }
+    .form-container input[type="submit"],
+    .form-container input[type="button"] {
+        width: 100%;
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .form-container input[type="submit"]:hover,
+    .form-container input[type="button"]:hover {
+        background-color: #0056b3;
+    }
+    .form-container .password-field {
+        position: relative;
+        margin-bottom: 15px;
+    }
+    .form-container .password-field input[type="password"] {
+        padding-right: 40px; /* Ensure space for the "Forget" button */
+    }
+    .form-container .password-field .forget-link {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #007bff;
+        text-decoration: none;
+        font-size: 0.85rem;
+    }
+    .switch-form {
+        margin-top: 10px;
+        font-size: 0.85rem;
+        text-align: center;
+    }
+    .form-container .next-button {
+        display: none;
+    } 
+    .next-button {
+    display: none; /* Initially hidden, controlled by JavaScript */
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s;
+}
+
+.next-button:hover {
+    background-color: #0056b3;
+}
+
+</style>
+</head>
+<body>
+<div class="form-container" id="login-form">
+    <img src="Pic/Loginpic.jpg" alt="Login Image">
+    <h2>𝐋𝐨𝐠𝐢𝐧</h2>
+    <form action="C:\Users\H.A.R\Downloads\kanwal\dashboard.html" method="POST">
+        <label for="username">𝐔𝐬𝐞𝐫𝐧𝐚𝐦𝐞</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+    
+        <div class="password-field">
+            <label for="password">𝐏𝐚𝐬𝐬𝐰𝐨𝐫𝐝</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <a href="forget.html" class="forget-link">𝐅𝐨𝐫𝐠𝐞𝐭?</a>
+        </div>
+    
+        <input type="submit" value="Login">
+    </form>
+    
+    <div class="switch-form">
+        <p>𝐃𝐨𝐧'𝐭 𝐡𝐚𝐯𝐞 𝐚𝐧 𝐚𝐜𝐜𝐨𝐮𝐧𝐭? <a href="#" onclick="toggleForm('signup')">𝐒𝐢𝐠𝐧 𝐔𝐩</a></p>
+    </div>
+</div>
+
+<div class="form-container" id="signup-form" style="display: none;">
+    <img src="Pic/4957136.jpg" alt="Signup Image">
+    <h2>𝐒𝐢𝐠𝐧 𝐔𝐩</h2>
+    <form id="signup-form-content" method="post" action="">
+        <label for="signup-username">𝐔𝐬𝐞𝐫𝐧𝐚𝐦𝐞</label>
+        <input type="text" id="signup-username" name="signup-username" placeholder="Enter your desired username" required>
+
+        <label for="signup-password">𝐏𝐚𝐬𝐬𝐰𝐨𝐫𝐝</label>
+        <input type="password" id="signup-password" name="signup-password" placeholder="Enter your password" required>
+
+        <label for="email">𝐄𝐦𝐚𝐢𝐥</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+        <label for="phone">𝐏𝐡𝐨𝐧𝐞 𝐍𝐮𝐦𝐛𝐞𝐫</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+        <label for="user-type">𝐀𝐜𝐜𝐨𝐮𝐧𝐭 𝐓𝐲𝐩𝐞</label>
+        <select id="user-type" name="user-type" onchange="toggleUserType()">
+            <option value="user">𝐔𝐬𝐞𝐫</option>
+            <option value="ngo">𝐍𝐆𝐎</option>
+        </select>
+
+        <div id="ngo-info-brief" style="display: none;">
+            <p>𝐀𝐝𝐝𝐢𝐭𝐢𝐨𝐧𝐚𝐥 𝐢𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧 𝐫𝐞𝐪𝐮𝐢𝐫𝐞𝐝 𝐟𝐨𝐫 𝐍𝐆𝐎 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐭𝐢𝐨𝐧</p>
+            <a href="test 2/test 2.html" class="next-button">Next</a>
+
+            <br><br>
+        </div>
+        
+        <input type="submit" class="signup-button" value="Sign Up">
+    </form>
+    <div class="switch-form">
+        <p>𝐀𝐥𝐫𝐞𝐚𝐝𝐲 𝐡𝐚𝐯𝐞 𝐚𝐧 𝐚𝐜𝐜𝐨𝐮𝐧𝐭? <a href="#" onclick="toggleForm('login')">Login</a></p>
+    </div>
+</div>
+
+<script>
+    function toggleForm(formType) {
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
+
+        if (formType === 'signup') {
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'block';
+        } else if (formType === 'login') {
+            signupForm.style.display = 'none';
+            loginForm.style.display = 'block';
+        }
+    }
+
+    function toggleUserType() {
+        const userType = document.getElementById('user-type').value;
+        const ngoInfo = document.getElementById('ngo-info-brief');
+        const nextButton = document.querySelector('.next-button');
+        const signupButton = document.querySelector('.signup-button');
+
+        if (userType === 'ngo') {
+            ngoInfo.style.display = 'block';
+            nextButton.style.display = 'block';
+            signupButton.style.display = 'none';
+        } else {
+            ngoInfo.style.display = 'none';
+            nextButton.style.display = 'none';
+            signupButton.style.display = 'block';
+        }
+    }
+</script>
+</body>
+</html>

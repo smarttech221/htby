@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ngo.css">
+    <title>NGO Details</title>
+    <style>
+        .request-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .request-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .request-form input[type="text"],
+        .request-form input[type="email"],
+        .request-form input[type="tel"],
+        .request-form input[type="file"],
+        .request-form select,
+        .request-form textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .request-form input[type="submit"] {
+            background-color: #94c9ff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .request-form input[type="submit"]:hover {
+            background-color: #94c9ff;
+        }
+        .ngo-card {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">NGO Finder</div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="dashboard">
+            <h1>NGO Details</h1>
+            <section id="ngo-list">
+                <div class="ngo-card">
+                    <h3>Al-Khidmat Foundation</h3>
+                    <p><strong>Established:</strong> 1990</p>
+                    <p><strong>Services Offered:</strong> Education, Health Care, Disaster Relief</p>
+                    <p><strong>Contact:</strong> 123-456-7890</p>
+                    <p><strong>Website:</strong> <a href="http://alkhidmat.org" target="_blank">alkhidmat.org</a></p>
+                    <button onclick="showRequestForm('request-form-1')">Send Request</button>
+                    <div id="request-form-1" class="request-form" style="display:none;">
+                        <h4>Accreditation Application Form</h4>
+                        <form action="/submit-request" method="POST">
+                          
+                            <h6>I. General information:</h6>
+                            <label for="USER-name-1">Name of USER:</label>
+                            <input type="text" id="USER-name-1" name="USER-name" required>
+                            <label for="address-1">Address:</label>
+                            <input type="text" id="address-1" name="address" required>
+                            <label for="country-1">Country:</label>
+                            <input type="text" id="country-1" name="country" required>
+                            <label for="phone-1">Phone number:</label>
+                            <input type="text" id="phone-1" name="phone" required>
+                            <label for="fax-1">Fax:</label>
+                            <input type="text" id="fax-1" name="fax">
+                            <label for="email-1">Contact e-mail address:</label>
+                            <input type="email" id="email-1" name="email" required>
+                            
+                            <label for="dob-1">Date of birth:</label>
+                            <input type="date" id="dob-1" name="dob" required>
+                            <label for="gender-1">Gender:</label>
+                            <select id="gender-1" name="gender" required>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                            </select>
+                           
+                               
+                           
+                            <label for="funding-1">Please indicate if you would like to apply for funding?</label>
+                            <p>
+                                <input type="radio" id="funding-yes-1" name="funding" value="Yes"> Yes
+                                <input type="radio" id="funding-no-1" name="funding" value="No"> No
+                            </p>
+                            <label for="support-requirements-1">Please indicate if you have any support requirements on the basis of disability:</label>
+                            <textarea id="support-requirements-1" name="support-requirements" rows="2"></textarea>
+                            
+                            <input type="submit" value="Submit Request" onclick="alert('Your form was submitted successfully. Please wait until NGO accepts.');">
+
+                            
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Additional NGO Cards -->
+                <div class="ngo-card">
+                    <h3>Pakistan Red Crescent Society</h3>
+                    <p><strong>Established:</strong> 1947</p>
+                    <p><strong>Services Offered:</strong> Emergency Relief, Blood Donation Drives, Health Services</p>
+                    <p><strong>Contact:</strong> 321-654-9870</p>
+                    <p><strong>Website:</strong> <a href="http://redcrescent.pk" target="_blank">redcrescent.pk</a></p>
+                    <button onclick="showRequestForm('request-form-2')">Send Request</button>
+                    <div id="request-form-2" class="request-form" style="display:none;">
+                        <h4>Accreditation Application Form</h4>
+                        <form action="/submit-request" method="POST">
+                            <h6>I. General information:</h6>
+                            <label for="USER-name-1">Name of USER:</label>
+                            <input type="text" id="USER-name-1" name="USER-name" required>
+                            <label for="address-1">Address:</label>
+                            <input type="text" id="address-1" name="address" required>
+                            <label for="country-1">Country:</label>
+                            <input type="text" id="country-1" name="country" required>
+                            <label for="phone-1">Phone number:</label>
+                            <input type="text" id="phone-1" name="phone" required>
+                            <label for="fax-1">Fax:</label>
+                            <input type="text" id="fax-1" name="fax">
+                            <label for="email-1">Contact e-mail address:</label>
+                            <input type="email" id="email-1" name="email" required>
+                            
+                            <label for="dob-1">Date of birth:</label>
+                            <input type="date" id="dob-1" name="dob" required>
+                            <label for="gender-1">Gender:</label>
+                            <select id="gender-1" name="gender" required>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                            </select>
+                           
+                               
+                           
+                            <label for="funding-1">Please indicate if you would like to apply for funding?</label>
+                            <p>
+                                <input type="radio" id="funding-yes-1" name="funding" value="Yes"> Yes
+                                <input type="radio" id="funding-no-1" name="funding" value="No"> No
+                            </p>
+                            <label for="support-requirements-1">Please indicate if you have any support requirements on the basis of disability:</label>
+                            <textarea id="support-requirements-1" name="support-requirements" rows="2"></textarea>
+                            
+                            <input type="submit" value="Submit Request" onclick="alert('Your form was submitted successfully. Please wait until NGO accepts.');">
+
+
+                            
+                        </form>
+                    </div>
+                </div>
+
+                <div class="ngo-card">
+                    <h3>Shaukat Khanum Memorial Cancer Hospital & Research Centre</h3>
+                    <p><strong>Established:</strong> 1994</p>
+                    <p><strong>Services Offered:</strong> Cancer Treatment, Research, Patient Support</p>
+                    <p><strong>Contact:</strong> 456-789-0123</p>
+                    <p><strong>Website:</strong> <a href="http://shaukatkhanum.org.pk" target="_blank">shaukatkhanum.org.pk</a></p>
+                    <button onclick="showRequestForm('request-form-3')">Send Request</button>
+                    <div id="request-form-3" class="request-form" style="display:none;">
+                        <h4>Accreditation Application Form</h4>
+                        <form action="/submit-request" method="POST"> <h6>I. General information:</h6>
+                            <label for="USER-name-1">Name of USER:</label>
+                            <input type="text" id="USER-name-1" name="USER-name" required>
+                            <label for="address-1">Address:</label>
+                            <input type="text" id="address-1" name="address" required>
+                            <label for="country-1">Country:</label>
+                            <input type="text" id="country-1" name="country" required>
+                            <label for="phone-1">Phone number:</label>
+                            <input type="text" id="phone-1" name="phone" required>
+                            <label for="fax-1">Fax:</label>
+                            <input type="text" id="fax-1" name="fax">
+                            <label for="email-1">Contact e-mail address:</label>
+                            <input type="email" id="email-1" name="email" required>
+                            
+                            <label for="dob-1">Date of birth:</label>
+                            <input type="date" id="dob-1" name="dob" required>
+                            <label for="gender-1">Gender:</label>
+                            <select id="gender-1" name="gender" required>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                            </select>
+                           
+                               
+                           
+                            <label for="funding-1">Please indicate if you would like to apply for funding?</label>
+                            <p>
+                                <input type="radio" id="funding-yes-1" name="funding" value="Yes"> Yes
+                                <input type="radio" id="funding-no-1" name="funding" value="No"> No
+                            </p>
+                            <label for="support-requirements-1">Please indicate if you have any support requirements on the basis of disability:</label>
+                            <textarea id="support-requirements-1" name="support-requirements" rows="2"></textarea>
+                            
+                            <input type="submit" value="Submit Request" onclick="alert('Your form was submitted successfully. Please wait until NGO accepts.');">
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="ngo-card">
+                    <h3>Sindh Education Foundation</h3>
+                    <p><strong>Established:</strong> 1992</p>
+                    <p><strong>Services Offered:</strong> Educational Support, Scholarships, Community Development</p>
+                    <p><strong>Contact:</strong> 321-987-6540</p>
+                    <p><strong>Website:</strong> <a href="http://sindheducationfoundation.org" target="_blank">sindheducationfoundation.org</a></p>
+                    <button onclick="showRequestForm('request-form-4')">Send Request</button>
+                    <div id="request-form-4" class="request-form" style="display:none;">
+                        <h4>Accreditation Application Form</h4>
+                        <form action="/submit-request" method="POST">
+                            <h6>I. General information:</h6>
+                            <label for="USER-name-1">Name of USER:</label>
+                            <input type="text" id="USER-name-1" name="USER-name" required>
+                            <label for="address-1">Address:</label>
+                            <input type="text" id="address-1" name="address" required>
+                            <label for="country-1">Country:</label>
+                            <input type="text" id="country-1" name="country" required>
+                            <label for="phone-1">Phone number:</label>
+                            <input type="text" id="phone-1" name="phone" required>
+                            <label for="fax-1">Fax:</label>
+                            <input type="text" id="fax-1" name="fax">
+                            <label for="email-1">Contact e-mail address:</label>
+                            <input type="email" id="email-1" name="email" required>
+                            
+                            <label for="dob-1">Date of birth:</label>
+                            <input type="date" id="dob-1" name="dob" required>
+                            <label for="gender-1">Gender:</label>
+                            <select id="gender-1" name="gender" required>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                            </select>
+                           
+                               
+                           
+                            <label for="funding-1">Please indicate if you would like to apply for funding?</label>
+                            <p>
+                                <input type="radio" id="funding-yes-1" name="funding" value="Yes"> Yes
+                                <input type="radio" id="funding-no-1" name="funding" value="No"> No
+                            </p>
+                            <label for="support-requirements-1">Please indicate if you have any support requirements on the basis of disability:</label>
+                            <textarea id="support-requirements-1" name="support-requirements" rows="2"></textarea>
+                            
+                            <input type="submit" value="Submit Request" onclick="alert('Your form was submitted successfully. Please wait until NGO accepts.');">
+
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function showRequestForm(formId) {
+            var form = document.getElementById(formId);
+            if (form.style.display === "none" || form.style.display === "") {
+                form.style.display = "block";
+            } else {
+                form.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

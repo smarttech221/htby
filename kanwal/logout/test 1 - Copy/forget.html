@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-blue {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+        }
+        .btn-blue:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+            padding: 15px;
+        }
+        .logo {
+            max-width: 50%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-control {
+            border-radius: 0.25rem;
+        }
+        @media (max-width: 250px) {
+            .container {
+                margin-top: 20px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="image/6343837.jpg" alt="Forgot Password Image" class="logo">
+        <h2>Forgot Password</h2>
+        <p class="lead">Enter your email to receive a password reset OTP.</p>
+        <form action="send_otp.php" method="POST">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <button type="submit" class="btn btn-blue">Send OTP</button>
+        </form>
+        <p class="mt-4"><a href="test1.html">Back to Login</a></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
